@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prototype & Chill — AI Hack Day</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0E0D1C;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      padding: 80px 24px;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 64px;
+    }
+
+    .event-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: #C4FF4D;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .event-title {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .event-title .accent {
+      color: #C4FF4D;
+    }
+
+    .event-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* Divider */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 48px 0;
+    }
+
+    /* Section heading */
+    .section-heading {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    /* Body text */
+    p {
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 20px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    em {
+      color: rgba(255,255,255,0.45);
+      font-style: italic;
+    }
+
+    strong {
+      color: #FFFFFF;
+      font-weight: 500;
+    }
+
+    /* THEME CARD callout */
+    .callout {
+      border-left: 3px solid #C4FF4D;
+      padding: 16px 20px;
+      margin: 28px 0;
+      background: rgba(196, 255, 77, 0.05);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .callout p {
+      margin-bottom: 0;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .callout strong {
+      color: #C4FF4D;
+    }
+
+    /* Timeline */
+    .timeline {
+      list-style: none;
+      margin: 24px 0;
+    }
+
+    .timeline li {
+      display: flex;
+      gap: 20px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.8);
+      font-size: 15px;
+      align-items: baseline;
+    }
+
+    .timeline li:last-child { border-bottom: none; }
+
+    .timeline .date-col {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.35);
+      white-space: nowrap;
+      min-width: 72px;
+      padding-top: 2px;
+    }
+
+    /* Participation block */
+    .participation {
+      margin-top: 48px;
+      padding: 40px;
+      background: #C4FF4D;
+      border-radius: 12px;
+      color: #0E0D1C;
+    }
+
+    .participation .p-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(14,13,28,0.5);
+      margin-bottom: 12px;
+    }
+
+    .participation .p-headline {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .participation p {
+      color: rgba(14,13,28,0.75);
+      margin-bottom: 0;
+      font-size: 15px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-left {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-right {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="header">
+      <div class="event-tag">AI Hack Day &nbsp;·&nbsp; UX Team · Arista Networks</div>
+      <h1 class="event-title">Prototype<br><span class="accent">&amp; Chill</span></h1>
+      <div class="event-date">MAY 15, 2026 &nbsp;·&nbsp; ALL DAY</div>
+    </div>
+
+    <p>GREETINGS.</p>
+
+    <p>You have been selected. Not by us. By fate. By the inexorable march of progress and also by a Google Form we're sending on May 11th.</p>
+
+    <p>Think of your most unhinged "what if someone just built a thing that…" idea. The one you've never said out loud because it sounds too small, too weird, or too specific to just you. That's exactly the one we want.</p>
+
+    <p>Write it down. Submit it. On May 14th you find out whose problem you're solving. It will not be yours. You do not get to solve your own problem. That would be too easy and also against the rules.</p>
+
+    <div class="callout">
+      <p>You will also draw a <strong>THEME CARD</strong>. The theme card is gospel. The theme card is law. What's on it? You'll find out on the day. Good luck.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-heading">The Day Itself</div>
+
+    <p>You open Claude Code or Figma Make. You begin. You may experience the following emotions in no particular order: confusion, excitement, despair, a brief period of euphoria around 11am, a crisis at 2pm, unexpected triumph at 4:30pm, mild dissociation. This is normal. This is the process.</p>
+
+    <p>By the end of day, you submit a recording of what you built. The recording must show the thing working.</p>
+
+    <p>On May 18th, we watch. We bear witness. Then we vote for our champions.</p>
+
+    <div class="divider"></div>
+
+    <div class="section-heading">Key Dates</div>
+
+    <ul class="timeline">
+      <li><span class="date-col">MAY 11</span> Form goes out — submit your problem brief</li>
+      <li><span class="date-col">MAY 14</span> Names drawn — find out who you're building for</li>
+      <li><span class="date-col">MAY 15</span> Build day — submit your recording by EOD</li>
+      <li><span class="date-col">MAY 18</span> Watch party — demos, votes, champions crowned</li>
+    </ul>
+
+    <div class="participation">
+      <div class="p-label">Participation</div>
+      <div class="p-headline">Not. Optional.</div>
+      <p>We cannot wait to see what you build.</p>
+    </div>
+
+    <div class="footer">
+      <span class="footer-left">UX Team · Arista Networks</span>
+      <span class="footer-right">Claude Code · Figma Make</span>
+    </div>
+
+  </div>
+</body>
+</html>
